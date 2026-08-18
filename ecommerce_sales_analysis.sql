@@ -1,13 +1,9 @@
--- =====================================================================
 -- PROJECT: E-Commerce Sales Data Analysis (SQL)
 -- Mock dataset analysis using JOINs and window functions to identify
 -- top products, monthly revenue trends, and geographical insights.
--- Compatible with MySQL 8.0+ / MS SQL Server 2019+
--- =====================================================================
-
--- ---------------------------------------------------------------------
+-----------------------------------------------------------------------
 -- 1. SCHEMA
--- ---------------------------------------------------------------------
+-----------------------------------------------------------------------
 DROP TABLE IF EXISTS order_items;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS products;
@@ -44,9 +40,9 @@ CREATE TABLE order_items (
     FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
 
--- ---------------------------------------------------------------------
+-----------------------------------------------------------------------
 -- 2. MOCK DATA
--- ---------------------------------------------------------------------
+-----------------------------------------------------------------------
 INSERT INTO customers (customer_id, customer_name, city, state) VALUES
 (1,'Rahul Sharma','Faridabad','Haryana'),
 (2,'Priya Verma','Delhi','Delhi'),
@@ -90,9 +86,9 @@ INSERT INTO order_items (order_item_id, order_id, product_id, quantity) VALUES
 (25,117,6,1),(26,117,10,6),(27,118,5,1),(28,119,9,2),
 (29,120,7,1),(30,120,1,3);
 
--- ---------------------------------------------------------------------
+-----------------------------------------------------------------------
 -- 3. TOP PRODUCTS BY REVENUE (JOIN + aggregation)
--- ---------------------------------------------------------------------
+-----------------------------------------------------------------------
 SELECT
     p.product_name,
     p.category,
